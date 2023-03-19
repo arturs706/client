@@ -149,6 +149,7 @@
     color: #ffffff6f;
   }
   
+  
   .social {
     display: flex;
     flex-direction: row;
@@ -248,15 +249,17 @@
       margin-top: 2.5rem;
       position: relative;
       height: 5.5rem;
-      background-color: #000235;
+      z-index: 2;
     }
     .arrowleft {
       cursor: pointer;
       position: relative;
+      z-index: 2;
     }
     .arrowright {
       cursor: pointer;
       position: relative;
+      z-index: 2;
 
     }
   
@@ -307,6 +310,9 @@
       align-items: center;
       width: 100%;
       max-width: 1440px;
+    }
+    .divfade {
+      color: #ffffff6f;
     }
   
     .maindivh1 {
@@ -374,17 +380,19 @@
 
     }
     .divone {
-        width: 28rem;
+        width: 30rem;
+    }
+    .maindivh1 {
+      line-height: 1;
+      text-align: center;
+      font-size: 1.6rem;
+      line-height: 1.2;
+    }
+    .maindivh1 h3{
+      color: #ffffff65;
+      font-size: 1.3rem;
     }
     
-    .embla {
-        overflow: hidden;
-        flex-direction: column;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-    }
     
     .slide {
         flex: 0 0 100%;
@@ -408,13 +416,15 @@
         width: 16rem;
     }
     .divthree {
-        width: 23rem;
-        font-size: 0.8rem;
+        width: 26rem;
+        font-size: 0.8rem;        
+        
     }
     .number {
         font-size: 1rem;
         width: 5rem;
         margin-left: 1rem;
+        margin-right: 1.4rem;
 
     }
     .number h1{
@@ -426,26 +436,20 @@
     }
 }
 
-
-
-
-
-
-
-
-
-  
   @media screen and (max-width: 564px) {
     .maindivh1 {
       line-height: 1;
       text-align: center;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       line-height: 1.3;
     }
     .maindivh1 h3{
       color: #ffffff65;
-      font-size: 1.5rem;
+      font-size: 1.2rem;
     }
+    .divone {
+      width: 26rem;
+  }
   
   
     .ovalblur {

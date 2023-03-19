@@ -247,13 +247,16 @@
         font-size: 1.1rem;
     }
     .newslettersmallscreen {
-        width: 8rem;
+        width: 8.5rem;
     }
     .newslettersmallscreen span{
         font-size: 0.5rem;
     }
     .socialssmallscreen img{
-        margin-right: 0.4rem;
+        margin-right: 0.3rem;
+    }
+    .newslettersmallscreen {
+        padding: 0.5rem;
     }
   }
 
