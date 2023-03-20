@@ -3,7 +3,6 @@
 import useEmblaCarousel from 'embla-carousel-react'
 import { useEffect, useState} from "react";
 import styles from './sectionone.module.css';
-import Autoplay from 'embla-carousel-autoplay'
 import Image from 'next/image'
 import Dots from './dots'
 import CarouselControls from './carouselcontrol'

@@ -1,4 +1,9 @@
+"use client"
+
 import styles from './sectionnine.module.css';
+import Image from 'next/image';
+import useEmblaCarousel from 'embla-carousel-react'
+import { useEffect, useState} from "react";
 
 const testimonials = [
     {
@@ -95,8 +100,167 @@ const testimonials = [
 ]
 
 export default function Sectionnine() {
+    const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true })
+    const [domLoaded, setDomLoaded] = useState(false);
+
+    useEffect(() => {
+      setDomLoaded(true);
+    }, []);
+
   return (
-    <div className={styles.swipertestdiv}>
-    </div>
+    <>
+    {domLoaded && (
+         <div className={styles.sectionnine}>
+         <h1>TESTIMONIALS</h1>
+         <div className={styles.swipertestdiv}>
+             <Image
+                 className={styles.arrowleftsmall}
+                 src="https://res.cloudinary.com/dttaprmbu/image/upload/v1677960910/arrowleft_bxtl9u.svg"
+                 alt="prev-arrow"
+                 width={50}
+                 height={37}
+                 onClick={() => emblaApi?.scrollNext()}
+             />
+                 <div className={styles.embla} ref={emblaRef}>
+                   <div className={`embla__container ${styles.emblacontainer}`}>
+                     {testimonials.map((testimonial) => (
+                       <div className={`embla__slide ${styles.slide}`} key={testimonial.id}>
+                         <div className={styles.testimonial}>
+                         <div className={styles.stars}>
+                     {(() => {
+                     switch (testimonial.rate) {
+                         case 1:
+                         return <div className={styles.starwrap}>
+                           <h2>Terrible</h2>
+                             <Image
+                                 src="/star_ready_one.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+     
+                         </div>;
+                         case 1.5:
+                         return <div className={styles.starwrap}>
+     
+                             <h2>Very Poor</h2>
+                             <Image
+                                 src="/star_ready_oneh.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+                         </div>;
+                         case 2:
+                         return <div className={styles.starwrap}>
+     
+                             <h2>Poor</h2>
+                             <Image
+                                 src="/star_ready_two.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+                         </div>;
+                         case 2.5:
+                         return <div className={styles.starwrap}>
+     
+                           <h2>Below Average</h2>
+                             <Image
+                                 src="/star_ready_twoh.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+                         </div>;
+                         case 3:
+                         return <div className={styles.starwrap}>
+     
+                           <h2>Average</h2>
+                             <Image
+                                 src="/star_ready_three.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+                         </div>;
+                         case 3.5:
+                         return <div className={styles.starwrap}>
+     
+                           <h2>Above Average</h2>
+                             <Image
+                                 src="/star_ready_threeh.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+                         </div>;
+                         case 4:
+                         return <div className={styles.starwrap}>
+     
+                           <h2>Good</h2>
+                             <Image
+                                 src="/star_ready_four.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+                         </div>;
+                         case 4.5:
+                         return <div className={styles.starwrap}>
+     
+                           <h2>Very Good</h2>
+                             <Image
+                                 src="/star_ready_fourh.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+                             <span>Based on {testimonials.length} reviews</span>
+                         </div>;
+                         case 5:
+                         return <div className={styles.starwrap}>
+     
+                           <h2>Excellent</h2>
+                             <Image
+                                 src="/star_ready_five.svg"
+                                 alt="star"
+                                 width={226}
+                                 height={34}
+                             />
+                         </div>;
+                         default:
+                         return null;
+                     }
+                     })()}
+                 </div>
+                 <div className={styles.wrapnamedate}>
+                   <span>{testimonial.name}</span>
+                   <span>{testimonial.date}</span>
+                 </div>
+                 <span className={styles.textstyles}>{testimonial.quote}</span>
+                 
+                 </div>
+                  
+                         </div>
+                     ))}
+                   </div>
+                 </div>
+             <Image
+                 className={styles.arrowrightsmall}
+                 src="https://res.cloudinary.com/dttaprmbu/image/upload/v1677960910/arrowright_tpil92.svg"
+                 alt="arrow-next"
+                 width={50}
+                 height={37}
+                 onClick={() => emblaApi?.scrollPrev()}
+             />
+         </div>
+         </div>
+
+    )}
+    
+    </>
+   
+
   )
 }
